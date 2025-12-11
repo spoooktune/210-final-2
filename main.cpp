@@ -53,6 +53,15 @@ int main(){
         muffin_booth.push_back(tM);
         cout << "> [Muffins] " << n << " joined the line [" << o << "]" << endl;
 
+        // Milestone 4
+        random = rand() % 20;
+        n = NAMES_LIST[random];
+        random = rand() % 20;
+        o = BRACELET_LIST[random];
+        Node tB(n, o);
+        bracelet_booth.push_back(tB);
+        cout << "> [Bracelets] " << n << " joined the line [" << o << "]" << endl;
+
     }
     cout << endl;
 
@@ -116,6 +125,37 @@ int main(){
         }
         else{
             for (Node p : muffin_booth){
+                cout << " > " << p.name << " [" << p.order << "]" << endl;
+            }
+        }
+        cout << endl;
+
+        // Milestone 4
+        random = rand() % 100 + 1;
+        if (random <= 50){
+            random = rand() % 20;
+            n = NAMES_LIST[random];
+            random = rand() % 20;
+            o = BRACELET_LIST[random];
+            Node tB(n, o);
+            bracelet_booth.push_back(tB);
+            cout << "> [Bracelets] " << n << " joined the line [" << o << "]" << endl;
+        }
+        if (!bracelet_booth.empty()){
+            n = bracelet_booth.front().name;
+            o = bracelet_booth.front().order;
+            bracelet_booth.erase(bracelet_booth.begin());
+            cout << "> [Bracelets] " << n << " got a bracelet" << endl;
+        }
+        else{
+            cout << "> [Bracelets] No new events" << endl;
+        }
+        cout << "> [Bracelets] Current Line" << endl;
+        if (bracelet_booth.empty()){
+            cout << " > Line is empty" << endl;
+        }
+        else{
+            for (Node p : bracelet_booth){
                 cout << " > " << p.name << " [" << p.order << "]" << endl;
             }
         }
