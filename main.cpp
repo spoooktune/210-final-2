@@ -16,7 +16,7 @@ const string COFFEE_LIST[20] = {"Iced vanilla latte with oat milk", "Double espr
 const string MUFFIN_LIST[20] = {"Blueberry Crumble", "Chocolate Chip", "Banana Nut", "Lemon Poppyseed", "Double Chocolate", "Apple Cinnamon", "Raspberry White Chocolate", "Pumpkin Spice", "Cranberry Orange", "Peanut Butter Swirl", "Carrot Cake", "Strawberry Streusel", "Maple Pecan", "Mocha Espresso", "Coconut Lime", "Blackberry Almond", "Vanilla Bean", "Cherry chocolate chunk", "Gingerbread", "Salted Caramel"};
 // Milestone 4
 const string BRACELET_LIST[20] = {"Cerulean", "Marigold", "Forest Green", "Coral Pink", "Indigo", "Mint", "Burgundy", "Lavender", "Charcoal", "Teal", "Goldenrod", "Peach", "Navy Blue", "Turquoise", "Crimson", "Sage", "Magenta", "Sand", "Sky Blue", "Plum"};
-// Milestone 4 
+// Milestone 5 
 const string POPCORN_LIST[20] = {"White Cheddar", "Caramel Crunch", "Kettle Corn", "Garlic Parmesan", "Spicy Buffalo", "Chocolate Drizzle", "Sour Cream & Onion", "Maple Bacon", "Dill Pickle", "Salted Caramel Pretzel", "Chili Lime", "Birthday Cake", "Honey Butter", "Ranch", "Cookies & Cream", "Nacho Cheese", "Sea Salt & Cracked Pepper", "Cinnamon Sugar", "Jalapeño Cheddar", "S’mores"};
 
 // Milestone 1
@@ -33,9 +33,14 @@ int main(){
     srand(time(0));
     // Milestone 1
     list<Node> coffee_booth;
+    // Milestone 3
     deque<Node> muffin_booth;
+    // Milestone 4
     vector<Node> bracelet_booth;
-    Node popcorn_booth[4];
+    // Milestone 5
+    array<Node, 4> popcorn_booth;
+
+    // Milestone 2
     int random;
     string n;
     string o;
@@ -65,6 +70,14 @@ int main(){
         Node tB(n, o);
         bracelet_booth.push_back(tB);
         cout << "> [Bracelets] " << n << " joined the line [" << o << "]" << endl;
+
+        random = rand() % 20;
+        n = NAMES_LIST[random];
+        random = rand() % 20;
+        o = POPCORN_LIST[random];
+        Node tP(n, o);
+        popcorn_booth[i] = tP;
+        cout << "> [Popcorn] " << n << " joined the line [" << o << "]" << endl;
 
     }
     cout << endl;
@@ -160,6 +173,47 @@ int main(){
         }
         else{
             for (Node p : bracelet_booth){
+                cout << " > " << p.name << " [" << p.order << "]" << endl;
+            }
+        }
+        cout << endl;
+
+        // Milestone 5
+        random = rand() % 100 + 1;
+        if (random <= 50){
+            random = rand() % 20;
+            n = NAMES_LIST[random];
+            random = rand() % 20;
+            o = POPCORN_LIST[random];
+            Node tP(n, o);
+            for (Node &p : popcorn_booth){
+                if (p.name == ""){
+                    p = tP;
+                }
+            }
+            cout << "> [Popcorn] " << n << " joined the line [" << o << "]" << endl;
+        }
+        if (!popcorn_booth.empty()){
+            n = popcorn_booth.front().name;
+            o = popcorn_booth.front().order;
+            popcorn_booth.front().name = "";
+            popcorn_booth.front().order = "";
+            for (int x = 0; x < 3; x++){
+                popcorn_booth[x] = popcorn_booth[x + 1];
+            }
+            popcorn_booth.back().name = "";
+            popcorn_booth.back().order = "";
+            cout << "> [Popcorn] " << n << " has been served" << endl;
+        }
+        else{
+            cout << "> [Popcorn] No new events" << endl;
+        }
+        cout << "> [Popcorn] Current Line" << endl;
+        if (popcorn_booth.empty()){
+            cout << " > Line is empty" << endl;
+        }
+        else{
+            for (Node p : popcorn_booth){
                 cout << " > " << p.name << " [" << p.order << "]" << endl;
             }
         }
