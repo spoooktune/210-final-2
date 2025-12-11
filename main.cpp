@@ -2,6 +2,7 @@
 #include <list>
 #include <random>
 #include <deque>
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +13,8 @@ const string NAMES_LIST[20] = {"Liam", "Emma", "Noah", "Olivia", "Ethan", "Ava",
 const string COFFEE_LIST[20] = {"Iced vanilla latte with oat milk", "Double espresso, extra hot", "Caramel macchiato with almond milk", "Mocha frappé with whipped cream", "Flat white, whole milk", "Cold brew with sweet cream", "Americano with a splash of half-and-half", "Iced chai latte, light ice", "Cappuccino with an extra shot", "Hazelnut latte with coconut milk", "Nitro cold brew, no ice", "Pumpkin spice latte, whipped cream", "Iced matcha latte with soy milk", "Honey cinnamon latte, whole milk", "Espresso macchiato, two shots", "White chocolate mocha, no whip", "Iced americano with vanilla cold foam", "Cortado, whole milk", "Brown sugar shaken espresso, oat milk", "Drip coffee, dark roast, two sugars"};
 // Milestone 3
 const string MUFFIN_LIST[20] = {"Blueberry Crumble", "Chocolate Chip", "Banana Nut", "Lemon Poppyseed", "Double Chocolate", "Apple Cinnamon", "Raspberry White Chocolate", "Pumpkin Spice", "Cranberry Orange", "Peanut Butter Swirl", "Carrot Cake", "Strawberry Streusel", "Maple Pecan", "Mocha Espresso", "Coconut Lime", "Blackberry Almond", "Vanilla Bean", "Cherry chocolate chunk", "Gingerbread", "Salted Caramel"};
+// Milestone 4
+const string BRACELET_LIST[20] = {"Cerulean", "Marigold", "Forest Green", "Coral Pink", "Indigo", "Mint", "Burgundy", "Lavender", "Charcoal", "Teal", "Goldenrod", "Peach", "Navy Blue", "Turquoise", "Crimson", "Sage", "Magenta", "Sand", "Sky Blue", "Plum"};
 
 // Milestone 1
 struct Node{
@@ -28,6 +31,7 @@ int main(){
     // Milestone 1
     list<Node> coffee_booth;
     deque<Node> muffin_booth;
+    vector<Node> bracelet_booth;
     int random;
     string n;
     string o;
