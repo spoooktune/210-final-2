@@ -17,6 +17,7 @@ struct Node{
 };
 
 int main(){
+    srand(time(0));
     list<Node> coffee_booth;
     int random;
     for (int i = 0; i < 3; i++){
@@ -26,6 +27,10 @@ int main(){
         string o = COFFEE_LIST[random];
         Node temp(n, o);
         coffee_booth.push_back(temp);
+    }
+
+    for (Node x : coffee_booth){
+        cout << x.name << ": " << x.order << endl;
     }
     return 0;
 }
