@@ -32,9 +32,12 @@ int main(){
         o = COFFEE_LIST[random];
         Node temp(n, o);
         coffee_booth.push_back(temp);
+        cout << "> " << n << " joined the line [" << o << "]" << endl;
     }
+    cout << endl;
 
     for (int i = 1; i <= 10; i++){
+        cout << "Round " << i << endl;
         random = rand() % 100 + 1;
         if (random <= 50){
             random = rand() % 20;
@@ -43,14 +46,27 @@ int main(){
             o = COFFEE_LIST[random];
             Node temp(n, o);
             coffee_booth.push_back(temp);
-            cout << n << " joined the line [" << o << "]";
+            cout << "> " << n << " joined the line [" << o << "]" << endl;
         }
         if (!coffee_booth.empty()){
             n = coffee_booth.front().name;
             o = coffee_booth.front().order;
             coffee_booth.pop_front();
-            cout << n << " has been served" << endl;
+            cout << "> " << n << " has been served" << endl;
         }
+        else{
+            cout << "> No new events" << endl;
+        }
+        cout << "> Current Line" << endl;
+        if (coffee_booth.empty()){
+            cout << " > Line is empty" << endl;
+        }
+        else{
+            for (Node p : coffee_booth){
+                cout << " > " << p.name << " [" << p.order << "]" << endl;
+            }
+        }
+        cout << endl;
     }
     return 0;
 }
