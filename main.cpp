@@ -3,6 +3,7 @@
 #include <random>
 #include <deque>
 #include <vector>
+#include <array>
 
 using namespace std;
 
@@ -16,13 +17,13 @@ const string MUFFIN_LIST[20] = {"Blueberry Crumble", "Chocolate Chip", "Banana N
 // Milestone 4
 const string BRACELET_LIST[20] = {"Cerulean", "Marigold", "Forest Green", "Coral Pink", "Indigo", "Mint", "Burgundy", "Lavender", "Charcoal", "Teal", "Goldenrod", "Peach", "Navy Blue", "Turquoise", "Crimson", "Sage", "Magenta", "Sand", "Sky Blue", "Plum"};
 // Milestone 4 
-const string _LIST[20] = {};
+const string POPCORN_LIST[20] = {"White Cheddar", "Caramel Crunch", "Kettle Corn", "Garlic Parmesan", "Spicy Buffalo", "Chocolate Drizzle", "Sour Cream & Onion", "Maple Bacon", "Dill Pickle", "Salted Caramel Pretzel", "Chili Lime", "Birthday Cake", "Honey Butter", "Ranch", "Cookies & Cream", "Nacho Cheese", "Sea Salt & Cracked Pepper", "Cinnamon Sugar", "Jalapeño Cheddar", "S’mores"};
 
 // Milestone 1
 struct Node{
     string name;
     string order;
-    Node(string n, string o){
+    Node(string n = "", string o = ""){
         name = n; 
         order = o;
     }
@@ -34,6 +35,7 @@ int main(){
     list<Node> coffee_booth;
     deque<Node> muffin_booth;
     vector<Node> bracelet_booth;
+    Node popcorn_booth[4];
     int random;
     string n;
     string o;
