@@ -15,6 +15,8 @@ const string COFFEE_LIST[20] = {"Iced vanilla latte with oat milk", "Double espr
 const string MUFFIN_LIST[20] = {"Blueberry Crumble", "Chocolate Chip", "Banana Nut", "Lemon Poppyseed", "Double Chocolate", "Apple Cinnamon", "Raspberry White Chocolate", "Pumpkin Spice", "Cranberry Orange", "Peanut Butter Swirl", "Carrot Cake", "Strawberry Streusel", "Maple Pecan", "Mocha Espresso", "Coconut Lime", "Blackberry Almond", "Vanilla Bean", "Cherry chocolate chunk", "Gingerbread", "Salted Caramel"};
 // Milestone 4
 const string BRACELET_LIST[20] = {"Cerulean", "Marigold", "Forest Green", "Coral Pink", "Indigo", "Mint", "Burgundy", "Lavender", "Charcoal", "Teal", "Goldenrod", "Peach", "Navy Blue", "Turquoise", "Crimson", "Sage", "Magenta", "Sand", "Sky Blue", "Plum"};
+// Milestone 4 
+const string _LIST[20] = {};
 
 // Milestone 1
 struct Node{
