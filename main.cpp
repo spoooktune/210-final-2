@@ -189,11 +189,12 @@ int main(){
             for (Node &p : popcorn_booth){
                 if (p.name == ""){
                     p = tP;
+                    break;
                 }
             }
             cout << "> [Popcorn] " << n << " joined the line [" << o << "]" << endl;
         }
-        if (!popcorn_booth.empty()){
+        if (popcorn_booth.front().name != ""){
             n = popcorn_booth.front().name;
             o = popcorn_booth.front().order;
             popcorn_booth.front().name = "";
@@ -209,12 +210,14 @@ int main(){
             cout << "> [Popcorn] No new events" << endl;
         }
         cout << "> [Popcorn] Current Line" << endl;
-        if (popcorn_booth.empty()){
+        if (popcorn_booth.front().name == ""){
             cout << " > Line is empty" << endl;
         }
         else{
             for (Node p : popcorn_booth){
-                cout << " > " << p.name << " [" << p.order << "]" << endl;
+                if (p.name != ""){
+                    cout << " > " << p.name << " [" << p.order << "]" << endl;
+                }
             }
         }
         cout << endl;
